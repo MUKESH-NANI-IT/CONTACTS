@@ -1,5 +1,6 @@
 package com.punisher;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class MobilePhone {
@@ -80,11 +81,15 @@ public class MobilePhone {
 
     public void PrintContacts() {
         System.out.println("Contact List");
-        for(int i=0; i<this.myContacts.size(); i++) {
-            System.out.println((i+1) + "." +
-                    this.myContacts.get(i).getName() + " -> " +
-                    this.myContacts.get(i).getPhoneNumber());
+        if (this.myContacts.size()==0){
+            System.out.println("NO contacts Available");
         }
-
+        else {
+            for (int i = 0; i < this.myContacts.size(); i++) {
+                System.out.println((i + 1) + "." +
+                        this.myContacts.get(i).getName() + " -> " +
+                        this.myContacts.get(i).getPhoneNumber());
+            }
+        }
     }
 }
